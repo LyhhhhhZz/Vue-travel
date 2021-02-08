@@ -2,7 +2,7 @@
   <div class="recommend">
     <div class="title">特惠门票</div>
     <div class="recommend-title">当季热门度假</div>
-    <div class="recommendItem" v-for="item of recommendList" :key="item.id">
+    <div class="recommendItem" v-for="item of list" :key="item.id">
       <div class="recommendItem-img">
         <img :src="item.imgUrl" class="recommendItem-img-content">
         <div class="recommendItem-img-desc">
@@ -24,41 +24,8 @@
 <script>
 export default {
   name: 'HomeHotRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: '//imgs.qunarzz.com/p/p67/1512/a2/0ebfcd965b9391f7.jpg_256x160_04d5813d.jpg',
-        descAddition: '盐城 - 三亚',
-        descDay: '5天跟团游',
-        desc: '含往返飞机票+4晚住宿',
-        price: '￥ 2950'
-      },
-      {
-        id: '0002',
-        imgUrl: '//imgs.qunarzz.com/p/p4/1809/50/c387c050d5188702.jpg_256x160_0d611436.jpg',
-        descAddition: '盐城 - 苏州',
-        descDay: '3天跟团游',
-        desc: '含2晚住宿',
-        price: '￥ 588'
-      },
-      {
-        id: '0003',
-        imgUrl: '//imgs.qunarzz.com/p/p70/1809/e7/4941057a6aae702.jpg_256x160_9fee6ccb.jpg',
-        descAddition: '盐城 - 丽江',
-        descDay: '5天跟团游',
-        desc: '含往返飞机票+4晚住宿',
-        price: '￥ 4960'
-      },
-      {
-        id: '0004',
-        imgUrl: '//imgs.qunarzz.com/p/p27/201302/28/d14185ac8a47f6f993835fbb.jpg_256x160_c2ab9336.jpg',
-        descAddition: '盐城 - 张家界',
-        descDay: '4天自由行',
-        desc: '含往返飞机票+3晚住宿',
-        price: '￥ 2290'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

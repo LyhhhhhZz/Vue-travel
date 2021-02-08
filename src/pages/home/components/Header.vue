@@ -6,15 +6,21 @@
     <div class="header-input">
       <span class="iconfont search-icon">&#xe632;</span>
       输入城市/景点/游玩主题</div>
-    <div class="header-right">
-      城市
-      <span class="iconfont arrow-icon">&#xe600;</span></div>
+    <router-link to='/city'>
+      <div class="header-right">
+        盐城
+        <span class="iconfont arrow-icon">&#xe600;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  props: {
+    city: String
+  }
 }
 </script>
 
@@ -22,8 +28,8 @@ export default {
   @import '~@/assets/styles/varibles.styl'
   .header
     display: flex
-    height: .86rem
-    line-height: .86rem
+    height: $headerHeight
+    line-height: $headerHeight
     background-color: $bgColor
     color: #fff
     .header-left
@@ -47,6 +53,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: white
       .arrow-icon
         margin-left: -.08rem
 </style>

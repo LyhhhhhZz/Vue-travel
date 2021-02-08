@@ -2,7 +2,7 @@
   <div class="radiers">
     <div class="title">旅游攻略</div>
     <div class="radiers-title">趣味亲子游</div>
-    <div class="radiersItem" v-for="item of radiersList" :key="item.id">
+    <div class="radiersItem" v-for="item of list" :key="item.id">
       <div class="radiersItem-img">
         <img :src="item.imgUrl" class="radiersItem-img-content">
       </div>
@@ -17,29 +17,8 @@
 <script>
 export default {
   name: 'HomeRaiders',
-  data () {
-    return {
-      radiersList: [{
-        id: '0001',
-        imgUrl: '//tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/7d9b233c71cad13ded0013f9c9cec635.jpg',
-        desc: '驾一叶扁舟，寻瓯江往事'
-      },
-      {
-        id: '0002',
-        imgUrl: '//tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/fd16ccffb2e2376ff370bda3bebebd71.jpg',
-        desc: '不负嵊夏好时光，泗乎太安逸'
-      },
-      {
-        id: '0003',
-        imgUrl: '//tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/c2ae82fcc9fa11fa253e5919c49bcfbf.jpg',
-        desc: '探访日本，一部家庭旅行画册'
-      },
-      {
-        id: '0004',
-        imgUrl: '//tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/5a11974656794b4715156501be10c1b7.jpg',
-        desc: '厦门，带娃出行与幸福同行'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
