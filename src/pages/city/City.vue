@@ -1,9 +1,14 @@
 <template>
   <div class="city-wrapper">
     <city-header></city-header>
-    <city-search></city-search>
-    <city-list :cities='cities' :hotCities='hotCities'></city-list>
-    <city-alphabet></city-alphabet>
+    <city-search :cities='cities'></city-search>
+    <city-list
+    :cities='cities'
+    :hotCities='hotCities'
+    :letter='letter'></city-list>
+    <city-alphabet
+    :cities='cities'
+    @change="handleLetterChange"></city-alphabet>
   </div>
 </template>
 
@@ -24,7 +29,8 @@ export default {
   data () {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ''
     }
   },
   methods: {
@@ -39,10 +45,21 @@ export default {
         this.cities = data.cities
         this.hotCities = data.hotCities
       }
+    },
+    handleLetterChange (letter) {
+      this.letter = letter
     }
   },
   mounted () {
     this.getCityInfo()
+    // document.addEventListener('touchstart', function (event) {
+    //   if (event.cancelable) {
+    //     // 判断默认行为是否已经被禁用
+    //     if (!event.defaultPrevented) {
+    //       event.preventDefault()
+    //     }
+    //   }
+    // }, false)
   }
 }
 </script>
