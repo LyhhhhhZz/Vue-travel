@@ -2,7 +2,12 @@
   <div class="recommend">
     <div class="title">特惠门票</div>
     <div class="recommend-title">当季热门度假</div>
-    <div class="recommendItem" v-for="item of list" :key="item.id">
+    <router-link
+      tag="div"
+      class="recommendItem"
+      v-for="item of list"
+      :key="item.id"
+      :to="'/detail/' + item.id">
       <div class="recommendItem-img">
         <img :src="item.imgUrl" class="recommendItem-img-content">
         <div class="recommendItem-img-desc">
@@ -16,7 +21,7 @@
         <span class="recomendItem-desc">{{item.desc}}</span>
         <p class="recommendItem-price">{{item.price}}</p>
       </div>
-    </div>
+    </router-link>
     <button class="recommend-btn">更多当季热门度假 ></button>
   </div>
 </template>
@@ -133,5 +138,4 @@ export default {
           font-size: .30rem
           font-weight: 550
           color: #ff7400
-
 </style>
