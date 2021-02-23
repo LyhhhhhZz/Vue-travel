@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" @click="handleGallaryClick">
     <div class="wrapper">
       <swiper ref="mySwiper" :options="swiperOptions">
         <swiper-slide
@@ -20,16 +20,24 @@ export default {
     imgs: {
       type: Array,
       default () {
-        return ['https://imgs.qunarzz.com/vs_ceph_b2c_001/bc076dde-ed2d-47ef-97b7-97d39d13f3a5.jpg_r_390x260x95_9b189a2a.jpg', 'https://imgs.qunarzz.com/vs_ceph_b2c_001/bc076dde-ed2d-47ef-97b7-97d39d13f3a5.jpg_r_390x260x95_9b189a2a.jpg']
+        return []
       }
     }
   },
   data () {
     return {
+      GallaryShow: true,
       swiperOptions: {
         pagination: '.swiper-pagination',
-        paginationType: 'fraction'
+        paginationType: 'fraction',
+        observeParents: true,
+        observer: true
       }
+    }
+  },
+  methods: {
+    handleGallaryClick () {
+      this.$emit('close')
     }
   }
 }
